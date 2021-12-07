@@ -2,6 +2,7 @@ import React from 'react'
 import PickTime from './PickTime'
 import PickVenue from './PickVenue'
 import Card from '../../Index/Cards/Card'
+import PickDay from './PickDay'
 
 const ConfirmPanel = () => {
     
@@ -15,6 +16,8 @@ const ConfirmPanel = () => {
                     <div className="combo-movie-container">
                         Select the venue
                         <PickVenue />
+                        Select the day
+                        <PickDay />
                         Set your date
                         <PickTime />
                         <div className="submit-movie-settings">

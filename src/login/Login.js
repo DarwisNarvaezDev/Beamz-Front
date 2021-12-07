@@ -11,6 +11,7 @@ const Login = () => {
     const imgFondoLogin = process.env.PUBLIC_URL + '/resources/cinema2.jpeg'
     const [showSignUpModal, setSignUpModal] = useState(false)
     const [showReservations, setShowReservations] = useState(false)
+    const [showLogin, setShowLogin] = useState(false)
 
     const {movie, setMovie} = useContext(AppContext);
     const {user, setUser} = useContext(UserContext);
@@ -22,16 +23,14 @@ const Login = () => {
 
         if(id === undefined){
             
+            setShowReservations(true)
+
             if( dni === undefined ){
 
-                
+                setShowLogin(true)
 
             }
             
-
-        }else{
-
-            setShowReservations(true)
 
         }
 
@@ -60,7 +59,8 @@ const Login = () => {
             </div>
         </section>
         { showSignUpModal && (<SignUpModal props={setSignUpModal} />) }
-        { showReservations && (<Redirect to="/helper"/>)}
+        { showReservations && (<Redirect to="/reservations"/>)}
+        { showLogin && (<Redirect to="/login"/>)}
         </>
     )
 }
