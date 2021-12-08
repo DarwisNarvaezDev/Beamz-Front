@@ -48,7 +48,7 @@ const NewCardsSection = (props) => {
                 {
                     newMovies.map(element => {
                         return (
-                            <Card props={element} />
+                            <Card props={element} modalEnabled={true} />
                         )
                     })
                 }

@@ -40,6 +40,12 @@ const PaymentSelector = ({ props }) => {
                     }}></input><label for="card" > Credit / Debit card</label></td>
                 </tr>
             </table>
+            <div className="money-div-large">
+                <div>
+                Total value
+                <p><strong>$00.00</strong></p>
+                </div>
+            </div>
         </div>
     )
 }

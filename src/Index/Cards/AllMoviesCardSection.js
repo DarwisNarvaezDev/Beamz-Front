@@ -45,7 +45,7 @@ const AllMoviesCardSection = ({ props }) => {
                 {
                     allMovies.map((element) => {
                         return (
-                            <Card props={element} />
+                            <Card props={element} modalEnabled={true} />
                         )
                     })
                 }

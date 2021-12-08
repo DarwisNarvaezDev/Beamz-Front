@@ -5,6 +5,8 @@ import Index from '../Index/Index'
 import Footer from '../footer/Footer'
 import Login from '../login/Login'
 import Reservation from '../Reservation/Reservation'
+import TransactionSuccess from '../TransactionSuccess/TransactionSuccess'
+import ErrorPage from '../Error/ErrorPage'
 
 export const AppContext = React.createContext({
     movie: {},
@@ -41,6 +43,16 @@ const App = () => {
                         </Route>
                         <Route exact path='/reservations'>
                             <Reservation />
+                        </Route>
+                        <Route exact path='/successful-purchase'>
+                            <Header />
+                                <TransactionSuccess />
+                            <Footer />
+                        </Route>
+                        <Route exact path='*'>
+                            <Header />
+                                <ErrorPage />
+                            <Footer />
                         </Route>
                     </Switch>
                 </AppContext.Provider>

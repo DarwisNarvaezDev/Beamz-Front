@@ -35,6 +35,10 @@ const ConfirmPanel = () => {
                 <div className="confirm-col2">
                     <div className="confirm-movie-container">
                         <Card props={mockMovie} />
+                        <div className="money-div">
+                            Price per seat
+                            <strong>$00.00</strong>
+                        </div>
                     </div>
                 </div>
             </div>

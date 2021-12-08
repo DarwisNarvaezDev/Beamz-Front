@@ -23,7 +23,7 @@ const PaymentPanel = () => {
         }
     
     return (
-        <div className="payment-panel-container">
+        <div className="payment-panel-container animate__animated animate__fadeInRight">
             <div className="payment-panel-wrapper">
                 <div className="payment-wrapper-col1">
                     <PaymentSelector props={paymentObject} />
