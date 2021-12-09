@@ -6,6 +6,10 @@ import ConfirmPanel from './confirm/ConfirmPanel'
 import SelectPanel from './select/SelectPanel'
 import Confirm from './confirm/Confirm'
 import Select from './select/Select'
+import PaymentPanel from './payment/PaymentPanel'
+import Payment from './payment/Payment'
+import Summary from './summary/Summary'
+import SummaryPanel from './summary/SummaryPanel'
 
 const Reservation = () => {
 
@@ -21,7 +25,7 @@ const Reservation = () => {
         <div className="reservation-main-container animate__animated animate__fadeIn">
             <div className="go-back">
                 <div className="go-back-wrapper">
-                <div className="reservations-messages">
+                    <div className="reservations-messages">
                         Mensajes modales
                     </div>
                     <div className="go-back-button">
@@ -33,20 +37,14 @@ const Reservation = () => {
                 <div className="res-col1">
                     <Confirm props={reducerObject} />
                     <Select props={reducerObject} />
-                    <div className="get-div">
-                        <div className="payment-div">
-                            <a className={getSelected}>Payment info</a>
-                        </div>
-                    </div>
-                    <div className="summary-div">
-                        <div className="summary-div-wrapper">
-                            <a className={getSelected}>Summary</a>
-                        </div>
-                    </div>
+                    <Payment props={reducerObject} />
+                    <Summary props={reducerObject} />
                 </div>
                 <div className="res-col2">
                     {state.showConfirmPanel && (<ConfirmPanel />)}
                     {state.showSelectPanel && (<SelectPanel />)}
+                    {state.showPaymentPanel && (<PaymentPanel />)}
+                    {state.showSummary && (<SummaryPanel />)}
                 </div>
             </div>
         </div>

@@ -1184,22 +1184,347 @@ section {
 
 }
 
-.get-div{
+.payment-div{
 
-  /* background-color: bisque; */
-  height: 4rem;
-  border-bottom: 1px solid #b0b0b0;
-
+  height: 10%;
+  
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border-bottom: 1px solid #b0b0b0;
 
 }
 
-.get-div a{
+.summary-div{
 
-margin-top: 1.5rem;
-height: 100%;
-width: 100%;
+  height: 10%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  border-bottom: 1px solid #b0b0b0;
+
+}
+
+.payment-panel-container{
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  background-color: whitesmoke;
+
+}
+
+.payment-panel-wrapper{
+
+  height: 95%;
+  width: 95%;
+
+  display: flex;
+
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+
+  /* background-color: bisque; */
+
+}
+
+.payment-wrapper-col1{
+
+  width: 40%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 10px 0 0 10px;
+  border-right: 0.5px solid #b0b0b0;
+
+  background-color: whitesmoke;
+
+}
+
+.payment-panel-table-wrapper{
+
+  height: 30%;
+  margin-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* background-color: #b0b0b0; */
+
+}
+
+.payment-panel-table-wrapper table {
+
+  border: 0.5px solid #b0b0b0;
+  border-radius: 10px;
+
+}
+
+.payment-panel-margin-bottom{
+
+  border-bottom: 0.5px solid #b0b0b0;
+
+}
+
+.payment-panel-table-wrapper table tr {
+
+  height: 2rem;
+
+  /* background-color: #787878; */
+
+}
+
+.payment-panel-table-wrapper table input {
+
+  margin-left: 1rem;
+
+  height: 8px;
+  width: 4%;
+  border-radius: 50%;
+  border: 0.5px solid #787878;
+
+  appearance: none;
+
+}
+
+.selected-input-checkbox{
+
+  background-color: green;
+
+}
+
+.payment-wrapper-col2{
+
+  width: 60%;
+  height: 100%;
+
+  border-radius: 0 10px 10px 0;
+
+  /* background-color: #787878; */
+
+}
+
+.cash-checkout-container{
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: salmon; */
+
+}
+
+.cash-checkout-wrapper{
+
+  width: 80%;
+  height: 40%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #b0b0b0; */
+
+}
+
+.cash-checkout-wrapper table {
+
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+  height: 100%;
+  width: 100%;
+
+  text-align: center;
+
+  background-color: whitesmoke;
+
+}
+
+.cash-checkout-wrapper table th {
+
+  border-bottom: 0.5px solid #b0b0b0;
+
+}
+
+.cash-checkout-wrapper table button {
+
+  width: 30%;
+  height: 50%;
+  background-color: green;
+  border-radius: 10px;
+  border: none;
+
+}
+
+.cash-checkout-wrapper table button:hover {
+
+  cursor: pointer;
+  color: white;
+
+}
+
+.card-checkout-container{
+
+  height: 100%;
+  height: 100%;
+
+}
+
+.card-checkout-wrapper{
+
+  height: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #787878; */
+
+}
+
+.card-info{
+
+  height: 40%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #787878; */
+
+}
+
+.card-info table {
+
+  border: 1px solid#b0b0b0;
+  border-radius: 10px;
+  width: 90%;
+
+  /* text-align: center; */
+
+}
+
+.card-info table tr{
+
+  height: 3rem;
+
+}
+
+.card-info table label {
+
+  margin-left: 1rem;
+
+}
+
+.card-info table input {
+
+  height: 20px;
+
+  /* background-color: #787878; */
+
+}
+
+.long-input{
+
+  width: 200px;
+
+}
+
+.short-input{
+
+  width: 50px;
+
+}
+
+.billing{
+
+  width: 90%;
+  height: 40%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.billing table {
+
+  /* background-color: pink; */
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  border: 0.5px solid #b0b0b0;
+  border-radius: 10px;
+
+}
+
+.billing table label {
+
+  margin-left: 0.5rem;
+
+}
+
+.long-billing-input{
+
+  height: 20px;
+  width: 260px;
+
+}
+
+.card-submit{
+
+  height: 10%;
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #787878; */
+
+}
+
+.card-submit button {
+
+  width: 30%;
+  height: 50%;
+  background-color: green;
+  border-radius: 10px;
+  border: none;
+
+}
+
+.card-submit button:hover {
+
+  cursor: pointer;
+  color: white;
 
 }
 
@@ -1284,6 +1609,234 @@ width: 100%;
 
 }
 
+.summary-container{
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: #b0b0b0; */
+
+}
+
+.summary-wrapper{
+
+  width: 95%;
+  height: 95%;
+
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+
+  display: flex;
+
+  /* background-color: pink; */
+
+}
+
+.summary-wrapper-col1{
+
+  width: 50%;
+  height: 100%;
+
+  border-radius: 10px 0 0 10px;
+  border-right: 0.5px solid #b0b0b0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+.summary-wrapper-col1-r1{
+
+  width: 90%;
+  height: 60%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+
+  background-color: whitesmoke;  
+
+}
+
+.summary-wrapper-col1-r2{
+
+  width: 90%;
+  height: 35%;
+
+  border-radius: 10px;
+  /* border: 0.5px solid #b0b0b0; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: whitesmoke;  
+
+}
+
+.summary-wrapper-col1-r2 table {
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+
+}
+
+.bottom-line{
+
+  border-bottom: 0.5px solid #b0b0b0;
+
+}
+
+.right-line{
+
+  border-right: 0.5px solid #b0b0b0;
+
+}
+
+.summary-wrapper-col2{
+
+  width: 60%;
+  height: 100%;
+
+  border-radius: 0 10px 10px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: salmon; */
+
+}
+
+.summary-wrapper-col2-wrapper{
+
+  height: 95%;
+  width: 95%;
+
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap:10px;
+
+  /* background-color: #787878; */
+
+}
+
+.summary-wrapper-col2-wrapper-r1{
+
+  min-height: 20%;
+  height: fit-content;
+  width: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+
+  background-color: whitesmoke;
+
+}
+
+.summary-wrapper-col2-wrapper-r1 table {
+
+  border: 0.5px solid #b0b0b0;
+  border-radius: 10px;
+
+  text-align: center;
+
+  height: 100%;
+  width: 100%;
+
+}
+
+.summary-wrapper-col2-wrapper-r2{
+
+  min-height: 20%;
+  height: fit-content;
+  width: 80%;
+
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: whitesmoke;
+
+}
+
+.summary-wrapper-col2-wrapper-r2 table {
+
+  height: 100%;
+  width: 100%;
+
+  text-align: center;
+
+}
+
+.summary-wrapper-col2-wrapper-r3{
+
+  height: 10%;
+  width: 80%;
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: whitesmoke;
+
+}
+
+.summary-wrapper-col2-wrapper-r3 button {
+
+  height: 60%;
+
+  background-color: green;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 0 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+.summary-wrapper-col2-wrapper-r3 button:hover{
+
+  cursor: pointer;
+
+}
+
 /* Clase para usar cuando esté seleccionado un div */
 
 /* Estilos para el panel de confirmación pelicula */
@@ -1313,6 +1866,42 @@ width: 100%;
 
   /* background-color: saddlebrown; */
 
+}
+
+.money-div{
+
+  height: 10%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.money-div-large{
+
+  margin-top: 2rem;
+  border-radius: 10px;
+  background-color: green;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  color: white;
+
+}
+
+.money-div-large div{
+
+  height:80%;
+  width: 100%;
+
+  /* background-color: #787878; */
 }
 
 .confirm-col1{
@@ -1383,7 +1972,7 @@ width: 100%;
 
 .pick-venue-wrapper div{
 
-  height: 4rem;
+  height: 3rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1411,7 +2000,7 @@ width: 100%;
   margin-left: 2rem;
 
   height: 20%;
-  width: 5%;
+  width: 3%;
   border-radius: 50%;
   border: 0.5px solid #787878;
 
@@ -1422,6 +2011,30 @@ width: 100%;
 .pick-venue-input:checked{
 
   background-color: green;
+
+}
+
+.pick-day-wrapper{
+
+  width: 100%;
+  height: 3rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.pick-day-wrapper select {
+
+  width: 65%;
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+  height: 100%;
+  text-align: center;
+
+  background-color: whitesmoke;
 
 }
 
@@ -1465,7 +2078,7 @@ width: 100%;
 
 .pick-time-list div {
 
-  height: 4rem;
+  height: 3rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1510,6 +2123,8 @@ width: 100%;
   height: 90%;
   width: 90%;
 
+  gap: 20px;
+
   border-radius: 0 10px 10px 0;
   border-top: 0.5px solid #b0b0b0;
   border-right: 0.5px solid #b0b0b0;
@@ -1532,6 +2147,7 @@ width: 100%;
 .submit-movie-settings-wrapper{
 
   display: flex;
+  margin-bottom: 1rem;
 
   /* background-color: green; */
 
@@ -1556,7 +2172,7 @@ width: 100%;
   border: none;
   border-radius: 10px;
   color: white;
-  padding: 0.5rem 2rem;
+  padding: 0 2rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -1588,7 +2204,7 @@ width: 100%;
   border: none;
   border-radius: 10px;
   color: white;
-  padding: 0.5rem 2rem;
+  padding: 0 2rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -2299,6 +2915,172 @@ background-color: whitesmoke;
 /* Estilos de el panel reservar asientos */
 
 /* Estilos de la reserva */
+
+/* Estilos de la pagina de errores */
+
+.error-page-container {
+
+  background-color: #b0b0b0;
+
+  height: 800px;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.error-page-wrapper{
+
+  height: 100%;
+  width: 70%;
+
+  max-width: 70%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: whitesmoke;
+
+}
+
+.error-message-wrapper{
+
+  width: 90%;
+  height: 90%;
+
+  display: flex;
+
+
+}
+
+.error-message-col1{
+
+  height: 100%;
+  width: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-right: 0.5px solid #b0b0b0;
+
+}
+
+.wojack-wrapper{
+
+  width: 100%;
+  height: 80%;
+
+}
+
+.wojack-wrapper img {
+
+  width: 100%;
+  height: 100%;
+
+}
+
+.error-message-col2{
+
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.error-message-paragraph{
+
+  width: 90%;
+  height: 50%;
+
+  text-align: center;
+  font-size: larger;
+
+  /* background-color: #787878; */
+
+}
+
+/* Estilos de la pagina de errores */
+
+/* Estilos para la pantalla de transacción exitosa */
+
+.success-container {
+
+  background-color: #b0b0b0;
+
+  height: 800px;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.success-wrapper{
+
+  height: 100%;
+  width: 70%;
+
+  max-width: 70%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: whitesmoke;
+
+}
+
+.success-r1{
+
+  height: 50%;
+  width: 60%;
+
+  text-align: center;
+
+  /* background-color: #787878; */
+
+}
+
+.success-r2{
+
+  height: 20%;
+  width: 60%;
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* background-color: bisque; */
+
+}
+
+.success-r3{
+
+  height:fit-content;
+  width: 60%;
+
+  /* background-color: salmon; */
+
+}
+
+/* Estilos para la pantalla de transacción exitosa */
 
 /* ---------------------------------------------------------- */
 

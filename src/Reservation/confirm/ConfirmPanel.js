@@ -2,6 +2,7 @@ import React from 'react'
 import PickTime from './PickTime'
 import PickVenue from './PickVenue'
 import Card from '../../Index/Cards/Card'
+import PickDay from './PickDay'
 
 const ConfirmPanel = () => {
     
@@ -15,6 +16,8 @@ const ConfirmPanel = () => {
                     <div className="combo-movie-container">
                         Select the venue
                         <PickVenue />
+                        Select the day
+                        <PickDay />
                         Set your date
                         <PickTime />
                         <div className="submit-movie-settings">
@@ -32,6 +35,10 @@ const ConfirmPanel = () => {
                 <div className="confirm-col2">
                     <div className="confirm-movie-container">
                         <Card props={mockMovie} />
+                        <div className="money-div">
+                            Price per seat
+                            <strong>$00.00</strong>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import App, { AppContext } from '../../router/App';
 import { IndexContext } from '../Index';
 
-const Card = ({ props }) => {
+const Card = ({ props, modalEnabled }) => {
 
     const { id, imgurl, title, gender, shortdescription, longdescription } = props
 
@@ -35,7 +35,11 @@ const Card = ({ props }) => {
         <div className="card animate__animated animate__fadeInUp" key={id}>
             <div className="card-row-1">
                 <img src={imgCard} alt="imagen de prueba" onClick={() => {
-                    cambiarContext()
+                    if( modalEnabled ){
+                        cambiarContext()
+                    }else{
+                        console.log("El modal enabled es false, por tanto no se muestra el modal");
+                    }
                 }} />
             </div>
             <div className="card-row-2">

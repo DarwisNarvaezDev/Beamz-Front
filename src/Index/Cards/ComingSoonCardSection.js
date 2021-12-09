@@ -47,7 +47,7 @@ const ComingSoonCardSection = () => {
                 {
                     comingSoonMovies.map((element) => {
                         return (
-                            <Card props={element} />
+                            <Card props={element} modalEnabled={true} />
                         )
                     })
                 }
