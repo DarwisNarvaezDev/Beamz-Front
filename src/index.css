@@ -106,10 +106,6 @@ header {
   margin: auto;
 }
 
-/* p:hover, p:focus{
-  border-bottom: 2px solid whitesmoke;
-  cursor: pointer;
-} */
 
 .search-icon:hover{
   border-bottom: 2px solid whitesmoke;
