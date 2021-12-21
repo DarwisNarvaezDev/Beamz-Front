@@ -10,7 +10,25 @@ export const IndexContext = React.createContext({});
 
 const Index = () => {
 
+    const moviesDefaultState = [];
+
     const [showModal, setShowModal] = useState(false)
+    const [movies, setMovies] = useState(moviesDefaultState)
+
+    const pingFetch = async() => {
+
+        const response = await fetch('http://localhost:8080/getall?limit=60')
+        const data = await response.json();
+
+        setMovies(data);
+
+    }
+
+    useEffect(() => {
+
+        pingFetch();
+
+    }, [])
 
     return (
         <>
@@ -22,7 +40,7 @@ const Index = () => {
                     </div>
                     <div className="selects-section">
                         {/* <SelectRow1 props={setShowModal} /> */}
-                        <SelectRow2 />
+                        <SelectRow2 props={movies} />
                     </div>
                     <div className="newMovies-card-section">
                         <NewCardsSection />

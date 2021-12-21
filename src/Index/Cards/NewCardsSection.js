@@ -4,7 +4,7 @@ import Card from './Card'
 import 'animate.css';
 import { data } from '../../helpers/data';
 
-const NewCardsSection = (props) => {
+const NewCardsSection = ({props}) => {
     
     const newMoviesDefaultState = []
 

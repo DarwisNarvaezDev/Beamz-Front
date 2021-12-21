@@ -1,28 +1,32 @@
 import React, {useState, useEffect} from 'react'
-import { data } from '../../helpers/data'
 
-const SelectRow2 = (props) => {
+const SelectRow2 = ({props}) => {
 
+    
     const defaultFirstRowTitle = "New Movies"
-
+    
     const [MovieCategoriesOptions, setMovieCategoriesOptions] = useState([])
     const [firstRowTitle, setFirstRowTitle] = useState(defaultFirstRowTitle)
+    
+    const excludeDuplicates = () => {
 
-    const fetchMoviesCategoriesOptions = () => {
+        const generos = props.map(element => {
+            return element.gender
+        });
 
-        const moviesCats = []
+        const uniqueGenders = [...new Set(generos)];
 
-        data.map((element) => {
-            moviesCats.push(element.category)
-        })
-
-        setMovieCategoriesOptions(moviesCats)
+        const uniqueGendersUppercased = uniqueGenders.map(element => {
+            return element.charAt(0).toUpperCase() + element.substring(1, element.length);
+        });
+        
+        setMovieCategoriesOptions(uniqueGendersUppercased);
 
     }
 
     useEffect(() => {
-        fetchMoviesCategoriesOptions()
-    },[])
+        excludeDuplicates();
+    }, [props])
 
     return (
         <div className="selects-row-2">
