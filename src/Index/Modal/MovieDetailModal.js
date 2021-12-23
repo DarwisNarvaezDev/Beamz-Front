@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import {CapitalizeLetter} from '../../helpers/CapitalizeLetter';
+import { TitleCase } from '../../helpers/TitleCase';
 import { AppContext } from '../../router/App'
 
 const MovieDetailModal = ({ props }) => {
@@ -8,12 +10,12 @@ const MovieDetailModal = ({ props }) => {
 
     const {movie, setMovie} = useContext(AppContext);
 
-    const {id, title, imgurl, gender, longdescription} = movie
+    const {id, title, imgurl, gender, longdesc } = movie
 
     const imgCloseButton = process.env.PUBLIC_URL + '/resources/icons8-macos-cerrar-30.png'
 
     useEffect(() => {
-        console.log(movie);
+        console.log(`movie from modal: ${movie}`);
     })
 
     return (
@@ -28,12 +30,12 @@ const MovieDetailModal = ({ props }) => {
             </div>
             <div className="modal-container-row-2">
                 <img src={imgCloseButton} className="close-modal-button" onClick={() => {
-                    setShowModal(false)
+                    setShowModal(false);
                 }}/>
                 <div className="modal-movie-description-container">
-                    <h2>{title}</h2>
-                    <h4>{gender}</h4>
-                    <p>{longdescription}</p>
+                    <h2>{TitleCase(title)}</h2>
+                    <h4>{CapitalizeLetter(gender)}</h4>
+                    <p>{longdesc}</p>
                     <div className="modal-description-get-tickets">
                         <Link to="/login">Get tickets</Link>
                     </div>

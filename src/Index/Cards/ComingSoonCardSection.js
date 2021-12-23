@@ -2,41 +2,24 @@ import React, { useEffect, useState } from 'react'
 import { data } from '../../helpers/data'
 import Card from './Card'
 
-const ComingSoonCardSection = () => {
+const ComingSoonCardSection = ({props}) => {
 
     const defaultComingSoonMoviesState = []
 
     const [comingSoonMovies, setComingSoonMovies] = useState(defaultComingSoonMoviesState)
 
-    const fetchComingSoonMovies = () => {
+    const getAllComingSoonMovies = async() => {
 
-        const onlyComingSoonMovies = data.filter(element => element.category === "2")
-        setComingSoonMovies(onlyComingSoonMovies)
-
-    }
-
-    const fetchMoreComingSoonMovies = () => {
-
-        const onlyComingSoonMovies = data.filter(element => element.category === "2")
-        onlyComingSoonMovies.map((element) => {
-            setComingSoonMovies(prevState => [...prevState, element])
-        })
-
-    }
-
-    const handleSubmit = (e) => {
-
-        e.persist()
-        e.preventDefault()
-        fetchMoreComingSoonMovies()
+        const { ComingSoonMoviesSectionDefaultState } = await props.state
+        setComingSoonMovies(ComingSoonMoviesSectionDefaultState)
 
     }
 
     useEffect(() => {
 
-        fetchComingSoonMovies()
+        getAllComingSoonMovies();
 
-    }, [])
+    }, [props])
 
     return (
         <>
@@ -52,11 +35,11 @@ const ComingSoonCardSection = () => {
                     })
                 }
             </div>
-            <div className="more-div">
-                <form onSubmit={handleSubmit} className="more-form">
+            {/* <div className="more-div">
+                <form className="more-form">
                     <button type="submit">More</button>
                 </form>
-            </div>
+            </div> */}
         </>
     )
 }

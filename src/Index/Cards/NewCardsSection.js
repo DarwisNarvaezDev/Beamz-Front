@@ -1,47 +1,83 @@
 import React, { useState, useEffect } from 'react'
-import SectionTitle from '../Utils/SectionTitle'
 import Card from './Card'
 import 'animate.css';
-import { data } from '../../helpers/data';
 
-const NewCardsSection = ({props}) => {
-    
+const NewCardsSection = ({ props }) => {
+
     const newMoviesDefaultState = []
-
     const [newMovies, setNewMovies] = useState(newMoviesDefaultState)
+    const [moreButtonShow, setMoreButtonShow] = useState(true);
 
-    const fetchNewMovies = () => {
+    const appendMovies = async () => {
 
-        const newMovies = data.filter((element) => element.category === "1")
-        const onlyFiveNewMovies = newMovies.slice(0,6)
-        console.log(onlyFiveNewMovies)
-        setNewMovies(onlyFiveNewMovies)
+        if (newMovies.length < 10) {
+
+            const { NewMoviesSectionDefaultState, FilteredMoviesDefaultState } = await props.state;
+            if( FilteredMoviesDefaultState.length === 0 ){
+
+                const newInterval = newMovies.length + 6
+                const newSlice = NewMoviesSectionDefaultState.slice( newMovies.length, newInterval )
+        
+                newSlice.map( element => {
+                    setNewMovies(prevState => [...prevState, element])
+                })
+
+            }else{
+
+                const newInterval = newMovies.length + 6
+                const newSlice = FilteredMoviesDefaultState.slice( newMovies.length, newInterval )
+        
+                newSlice.map( element => {
+                    setNewMovies(prevState => [...prevState, element])
+                })
+
+            }
+
+
+    
+            // if( allMovies.length > 34 ){
+    
+            //     console.log("no hay mas");
+            //     setShowMore(false);
+    
+            // }
+
+        }
 
     }
 
-    const fetchMoreNewMovies = () => {
+    const propsawait = async () => {
 
-        const newMovies = data.filter((element) => element.category === "1")
-        const onlyFiveNewMovies = newMovies.slice(0,12)
-        console.log(onlyFiveNewMovies)
-        setNewMovies(onlyFiveNewMovies)
+        const { NewMoviesSectionDefaultState, FilteredMoviesDefaultState } = await props.state;
+        console.log(FilteredMoviesDefaultState);
+        let chopped = [];
 
-    }
+        if( FilteredMoviesDefaultState.length === 0 ){
+            if (NewMoviesSectionDefaultState.length > 4) {
+                for (let i = 0; i < 6; i++) {
+                    chopped.push(NewMoviesSectionDefaultState[i]);
+                }
+            }
+        }else{
+                for (let i = 0; i < 6; i++) {
+                    chopped.push(FilteredMoviesDefaultState[i]);
+            }
+        }
 
-    const handleSubmit = (e) => {
-
-        e.persist()
-        e.preventDefault()
-        fetchMoreNewMovies()
+        setNewMovies(chopped)
 
     }
 
     useEffect(() => {
 
-        fetchNewMovies()
+        console.log("cambio")
+        if (newMovies.length < 20) {
+            propsawait();
+        }
 
-    },[])
-    
+
+    }, [props])
+
     return (
         <>
             <div className="cards-container">
@@ -54,8 +90,17 @@ const NewCardsSection = ({props}) => {
                 }
             </div>
             <div className="more-div">
-                <form onSubmit={handleSubmit} className="more-form">
-                    <button type="submit">More</button>
+                <form className="more-form">
+                    {moreButtonShow && (<button type="submit" onClick={(e) => {
+                        e.preventDefault();
+                        appendMovies();
+                        setMoreButtonShow(!moreButtonShow)
+                    }}>More</button>)}
+                    {!moreButtonShow && (<button type="submit" onClick={(e) => {
+                        e.preventDefault();
+                        propsawait()
+                        setMoreButtonShow(!moreButtonShow)
+                    }}>Less</button>)}
                 </form>
             </div>
         </>

@@ -1,32 +1,29 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useReducer } from 'react'
 import BannerSection from './Banner/BannerSection'
 import SelectRow2 from './Selects/SelectRow2'
 import NewCardsSection from './Cards/NewCardsSection'
 import AllMoviesCardSection from './Cards/AllMoviesCardSection'
 import ComingSoonCardSection from './Cards/ComingSoonCardSection'
 import MovieDetailModal from './Modal/MovieDetailModal'
+import { IndexReducer } from './reducer/IndexReducer'
+import { IndexDefaultStates } from './reducer/IndexDefaultStates'
 
 export const IndexContext = React.createContext({});
 
+
 const Index = () => {
 
+    const [state, dispatch] = useReducer(IndexReducer, IndexDefaultStates);
+    const reducerObject = {state: state, dispatch: dispatch}
+    
     const moviesDefaultState = [];
 
     const [showModal, setShowModal] = useState(false)
     const [movies, setMovies] = useState(moviesDefaultState)
 
-    const pingFetch = async() => {
-
-        const response = await fetch('http://localhost:8080/getall?limit=60')
-        const data = await response.json();
-
-        setMovies(data);
-
-    }
-
     useEffect(() => {
 
-        pingFetch();
+        dispatch({type: 'SET_INITIAL_STATES' });
 
     }, [])
 
@@ -40,16 +37,16 @@ const Index = () => {
                     </div>
                     <div className="selects-section">
                         {/* <SelectRow1 props={setShowModal} /> */}
-                        <SelectRow2 props={movies} />
+                        <SelectRow2 props={reducerObject} />
                     </div>
                     <div className="newMovies-card-section">
-                        <NewCardsSection />
+                        <NewCardsSection props={reducerObject} />
                     </div>
                     <div className="allMovies-card-section">
-                        <AllMoviesCardSection />
+                        <AllMoviesCardSection props={reducerObject} />
                     </div>
                     <div className="comingSoonMovies-card-section">
-                        <ComingSoonCardSection />
+                        <ComingSoonCardSection props={reducerObject} />
                     </div>
                 </div>
                 </IndexContext.Provider>

@@ -117,11 +117,27 @@ header {
   cursor: pointer;
 }
 
+.link-to-movies{
+
+  text-decoration: none;
+  color: white;
+
+}
+
+.link-to-movies:hover {
+
+  border-bottom: 2px solid whitesmoke;
+  cursor: pointer;
+
+}
+
+
 /* Estilos del header */
 
 /* Estilos del footer */
 
 footer{
+  margin-top: 5rem;
   background-color: #383838;
   color: white;
 

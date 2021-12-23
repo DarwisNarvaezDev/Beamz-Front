@@ -1,14 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import App, { AppContext } from '../../router/App';
 import { IndexContext } from '../Index';
 
 const Card = ({ props, modalEnabled }) => {
 
-    const { id, imgurl, title, gender, shortdescription, longdescription } = props
+    const { id, imgurl, title, gender, shortdesc, longdesc } = props
 
-    // const imgCard = process.env.PUBLIC_URL + `/resources/banners/${gender}/${imgurl}`;
-
-    const imgCard = process.env.PUBLIC_URL + '/resources/donramon.jpg'
+    const imgCard = process.env.PUBLIC_URL + `/resources/banners/${gender}/${imgurl}`
 
     const genderFormatted = gender.charAt(0).toUpperCase() + gender.substring(1, gender.length);
 
@@ -21,15 +19,18 @@ const Card = ({ props, modalEnabled }) => {
             id: id,
             title: title,
             gender: gender,
-            imgurl: imgurl,
-            shortdescription: shortdescription,
-            longdescription: longdescription
+            imgurl: imgCard,
+            shortdes: shortdesc,
+            longdesc: longdesc
         })
         setShowModal(true)
 
     }
 
-    // console.log(foo)
+    useEffect(() => {
+
+
+    }, [props])
 
     return (
         <div className="card animate__animated animate__fadeInUp" key={id}>
