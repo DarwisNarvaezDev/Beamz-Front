@@ -2007,7 +2007,8 @@ section {
 
 }
 
-.pick-venue-input{
+/* Vacio */
+.pick-venue-input-empty{
 
   margin-left: 2rem;
 
@@ -2020,7 +2021,17 @@ section {
 
 }
 
-.pick-venue-input:checked{
+/* Lleno */
+.pick-venue-input{
+
+  margin-left: 2rem;
+
+  height: 20%;
+  width: 3%;
+  border-radius: 50%;
+  border: 0.5px solid #787878;
+
+  appearance: none;
 
   background-color: green;
 

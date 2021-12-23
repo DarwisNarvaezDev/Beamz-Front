@@ -75,6 +75,71 @@ export const ReservationReducer = (state, action) => {
 
     }
 
+    //Reservation panels forms
+    if (action.type === 'SET_VENUE_VALUE') {
+
+        console.log(action.payload);
+        const venue = action.payload;
+
+        return {
+            ...state,
+            venue: venue,
+        }
+
+    }
+
+    //Styles
+    /* Vacio */
+    const claseSeleccionada = 'pick-venue-input';
+    const claseNoSeleccionada = 'pick-venue-input-empty';
+    /* Lleno */
+    // .pick-venue-input-empty  
+
+    if (action.type === 'PICK_SELECTED') {
+
+        const pickSelected = action.payload;
+
+        switch (pickSelected) {
+            case 1:
+                return {
+                    ...state,
+                    pickVenuePalermoInputClass: claseSeleccionada,
+                    pickVenueBelgranoInputClass: claseNoSeleccionada,
+                    pickVenueNunezInputClass: claseNoSeleccionada
+                }
+            case 2:
+                return {
+                    ...state,
+                    pickVenuePalermoInputClass: claseNoSeleccionada,
+                    pickVenueBelgranoInputClass: claseSeleccionada,
+                    pickVenueNunezInputClass: claseNoSeleccionada
+                }
+            case 3:
+                return {
+                    ...state,
+                    pickVenuePalermoInputClass: claseNoSeleccionada,
+                    pickVenueBelgranoInputClass: claseNoSeleccionada,
+                    pickVenueNunezInputClass: claseSeleccionada
+                }
+            default:
+                throw new Error(' Must pass an option to the reducer. ')
+        }
+
+
+    }
+
+    //Notifications modal actions
+    if (action.type === 'MODAL_CONFIRM_MESSAGE') {
+
+        const messageToShow = action.payload;
+
+        return {
+            ...state,
+            ModalMessage: messageToShow
+        }
+
+    }
+
     throw new Error("No action passed");
 
 }

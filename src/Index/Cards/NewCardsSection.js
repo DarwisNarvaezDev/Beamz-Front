@@ -34,14 +34,6 @@ const NewCardsSection = ({ props }) => {
             }
 
 
-    
-            // if( allMovies.length > 34 ){
-    
-            //     console.log("no hay mas");
-            //     setShowMore(false);
-    
-            // }
-
         }
 
     }
@@ -71,7 +63,7 @@ const NewCardsSection = ({ props }) => {
     useEffect(() => {
 
         console.log("cambio")
-        if (newMovies.length < 20) {
+        if (newMovies.length < 10) {
             propsawait();
         }
 

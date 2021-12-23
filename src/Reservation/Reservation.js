@@ -10,24 +10,20 @@ import PaymentPanel from './payment/PaymentPanel'
 import Payment from './payment/Payment'
 import Summary from './summary/Summary'
 import SummaryPanel from './summary/SummaryPanel'
+import NotificationsModal from './NotificationsModal/NotificationsModal'
 
 const Reservation = () => {
 
-    const [getSelected, setGetSelected] = useState("")
-
     const [state, dispatch] = useReducer(ReservationReducer, ReservationDefaultStates)
-
     const reducerObject = { state: state, dispatch: dispatch }
 
-    const butacaImg = process.env.PUBLIC_URL + 'resources/butaca.png'
+
 
     return (
         <div className="reservation-main-container animate__animated animate__fadeIn">
             <div className="go-back">
                 <div className="go-back-wrapper">
-                    <div className="reservations-messages">
-                        Mensajes modales
-                    </div>
+                    <NotificationsModal props={reducerObject} />
                     <div className="go-back-button">
                         <Link to="/">Go back</Link>
                     </div>
@@ -41,7 +37,7 @@ const Reservation = () => {
                     <Summary props={reducerObject} />
                 </div>
                 <div className="res-col2">
-                    {state.showConfirmPanel && (<ConfirmPanel />)}
+                    {state.showConfirmPanel && (<ConfirmPanel props={reducerObject} />)}
                     {state.showSelectPanel && (<SelectPanel />)}
                     {state.showPaymentPanel && (<PaymentPanel />)}
                     {state.showSummary && (<SummaryPanel />)}

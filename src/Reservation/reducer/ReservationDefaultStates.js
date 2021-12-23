@@ -9,6 +9,17 @@ export const ReservationDefaultStates = {
     summarySelected: 'summary-div',
     showSummary: false, 
     getSelected: 'get-div',
-    showGetButton: false
+    showGetButton: false,
+
+    //Notifications modal
+    ModalMessage: 'Welcome to the reservation panel!',
+    ShowModal: false,
+
+    //Reservation Big Form
+    //Pick Venue
+    venue: '',
+    pickVenuePalermoInputClass: 'pick-venue-input-empty',
+    pickVenueBelgranoInputClass: 'pick-venue-input-empty',
+    pickVenueNunezInputClass: 'pick-venue-input-empty',
 
 }
