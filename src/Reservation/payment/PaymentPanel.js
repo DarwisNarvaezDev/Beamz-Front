@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardCheckout from './CardCheckout';
 import CashCheckout from './CashCheckout';
 import PaymentSelector from './PaymentSelector';
 
-const PaymentPanel = () => {
+const PaymentPanel = ({props}) => {
     
     const [showCashCheckout, setShowCashCheckout] = useState(false);
     const [showCashSelected, setShowCashSelected] = useState("");
@@ -19,7 +19,8 @@ const PaymentPanel = () => {
         showCardCheckout: showCardCheckout,
         setShowCardCheckout: setShowCardCheckout,
         showCardSelected: showCardSelected,
-        setShowCardSelected: setShowCardSelected
+        setShowCardSelected: setShowCardSelected,
+        reducerObject: props
         }
     
     return (
@@ -29,8 +30,8 @@ const PaymentPanel = () => {
                     <PaymentSelector props={paymentObject} />
                 </div>
                 <div className="payment-wrapper-col2">
-                    {showCashCheckout && (<CashCheckout />)}
-                    {showCardCheckout && (<CardCheckout />)}
+                    {showCashCheckout && (<CashCheckout props={props} />)}
+                    {showCardCheckout && (<CardCheckout props={props} />)}
                 </div>
             </div>
         </div>

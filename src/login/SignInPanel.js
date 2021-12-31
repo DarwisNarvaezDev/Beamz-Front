@@ -1,27 +1,52 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import GoogleLogin from 'react-google-login';
+import { Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import SignInBox from './SignInBox';
 
-const SignInPanel = ({props}) => {
-    
-    const setSignUpModal = props;
+const SignInPanel = ({ props }) => {
+
+    const [UserInContext, setUserInContext] = useState({});
+    const [IsUserInContext, setIsUserInContext] = useState(false);
+    const [IsMovieInContext, setIsMovieInContext] = useState(false);
+
+    const {setSignUpModal, setShowLoading} = props;
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShowLoading(false);
+        }, 2000)
+    }, [])
+
+    const responseGoogle = (response) => {
+
+        const { yu } = response
+        const { TX: name, hW: lastName, nv: mail } = yu
+        
+        const user = {
+            name: name,
+            lastName: lastName,
+            mail: mail
+        }
+
+        sessionStorage.setItem('user', JSON.stringify(user));
+
+        console.log(`User in context: ${JSON.stringify(user)}`);
+        setUserInContext(user);
+
+        setTimeout(() => {
+            setShowLoading(true);
+            setTimeout(()=> {
+                setIsUserInContext(true);
+            },3000)
+        })
+
+
+    }
 
     return (
         <div className="sign-in-container">
-            <div className="sign-in-box">
-                <div className="sign-in-with">
-                    <p>Sign in with</p>
-                </div>
-                <div className="sign-in">
-                    <div className="no-account">
-                        <p>No account yet?</p>
-                    </div>
-                    <div className="sign-in-button">
-                        <a href="#" onClick={() => {
-                            setSignUpModal(true)
-                        }}>Sign Up!</a>
-                    </div>
-                </div>
-            </div>
+            {IsUserInContext ? (<Redirect to="/reservations" />) : (<SignInBox props={{setSignUpModal: setSignUpModal, responseGoogle: responseGoogle}} />)}
         </div>
     )
 }

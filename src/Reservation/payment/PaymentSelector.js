@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const PaymentSelector = ({ props }) => {
+
+    const [priceState, setpriceState] = useState(0);
 
     const {
         showCashCheckout,
@@ -10,8 +12,22 @@ const PaymentSelector = ({ props }) => {
         showCardCheckout,
         setShowCardCheckout,
         showCardSelected,
-        setShowCardSelected
+        setShowCardSelected,
+        reducerObject
     } = props
+
+    const { state, dispatch } = reducerObject;
+
+    const awaitObjects = async() => {
+
+        const { priceToShow } = await state;
+        setpriceState(priceToShow);
+
+    }
+
+    useEffect(() => {
+        awaitObjects();
+    }, [props])
 
     return (
         <div className="payment-panel-table-wrapper animate__animated animate__fadeInUp">
@@ -43,7 +59,7 @@ const PaymentSelector = ({ props }) => {
             <div className="money-div-large">
                 <div>
                 Total value
-                <p><strong>$00.00</strong></p>
+                <p><strong>$ {priceState},00</strong></p>
                 </div>
             </div>
         </div>

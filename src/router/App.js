@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from '../header/Header'
 import Index from '../Index/Index'
@@ -10,15 +10,17 @@ import ErrorPage from '../Error/ErrorPage'
 
 export const AppContext = React.createContext({
     movie: {},
-    setMovie: () => { }
+    setMovie: () => {}
 });
 
 export const UserContext = React.createContext({
     user: {},
-    setUser: () => { }
+    setUser: () => {}
 })
 
 const App = () => {
+
+    const [IsMovieSelected, setIsMovieSelected] = useState(false);
 
     const [movie, setMovie] = useState({})
     const movieInfo = { movie, setMovie }
@@ -33,7 +35,7 @@ const App = () => {
                     <Switch>
                         <Route exact path='/'>
                             <Header />
-                                <Index />
+                                <Index props={{IsMovieSelected: IsMovieSelected, setIsMovieSelected: setIsMovieSelected}} />
                             <Footer />
                         </Route>
                         <Route exact path='/login'>
@@ -41,9 +43,7 @@ const App = () => {
                                 <Login />
                             <Footer />
                         </Route>
-                        <Route exact path='/reservations'>
-                            <Reservation />
-                        </Route>
+                        <Route exact path='/reservations' component={Reservation} />
                         <Route exact path='/successful-purchase'>
                             <Header />
                                 <TransactionSuccess />

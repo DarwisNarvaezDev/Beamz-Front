@@ -41,7 +41,6 @@ const NewCardsSection = ({ props }) => {
     const propsawait = async () => {
 
         const { NewMoviesSectionDefaultState, FilteredMoviesDefaultState } = await props.state;
-        console.log(FilteredMoviesDefaultState);
         let chopped = [];
 
         if( FilteredMoviesDefaultState.length === 0 ){
@@ -62,7 +61,6 @@ const NewCardsSection = ({ props }) => {
 
     useEffect(() => {
 
-        console.log("cambio")
         if (newMovies.length < 10) {
             propsawait();
         }

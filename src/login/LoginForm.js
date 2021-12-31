@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const LoginForm = () => {
+
+    const emailRef = useRef(null);
+    
+    useEffect(() => {
+        
+        emailRef.current.focus();
+
+    }, [])
+
     return (
         <div className="login-form-container">
         <form>
             <h3>Log in</h3>
             <div className="form-row-2">
-                <label for="email-form-input">Email</label>
+                <label for="email-form-input" ref={emailRef}>Email</label>
                 <input type="text" value="Type your email" id="email-form-input"></input>
             </div>
             <div className="form-row-3">

@@ -1,0 +1,6 @@
+poner el clientId de google como variable de entorno
+
+Agregar variable de entorno que mapee el precio de los asientos
+
+Agregar validación para que si clickeamos un asiento que tenga como clase 'seat-disabled' no disparemos ninguna acción y el modal diga algo como:
+"asiento no disponible".

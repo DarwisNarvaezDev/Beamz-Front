@@ -1,5 +1,5 @@
-import React, { useEffect, useReducer, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import { ReservationReducer } from './reducer/ReservationReducer'
 import { ReservationDefaultStates } from './reducer/ReservationDefaultStates'
 import ConfirmPanel from './confirm/ConfirmPanel'
@@ -11,13 +11,23 @@ import Payment from './payment/Payment'
 import Summary from './summary/Summary'
 import SummaryPanel from './summary/SummaryPanel'
 import NotificationsModal from './NotificationsModal/NotificationsModal'
+import { AppContext } from '../router/App'
+import LoginForm from '../login/LoginForm'
+import { compareMap } from './reducer/CompareMapHelper'
 
 const Reservation = () => {
 
-    const [state, dispatch] = useReducer(ReservationReducer, ReservationDefaultStates)
-    const reducerObject = { state: state, dispatch: dispatch }
+    const [state, dispatch] = useReducer(ReservationReducer, ReservationDefaultStates);
+    const reducerObject = { state: state, dispatch: dispatch };
+    const [ShowLogin, setShowLogin] = useState(false);
 
-
+    useEffect(() => {
+        dispatch({type: 'DO_MAP'});
+        const userInStorage = sessionStorage.getItem('user');
+        if( userInStorage === null ){
+            setShowLogin(true);
+        }
+    }, [])
 
     return (
         <div className="reservation-main-container animate__animated animate__fadeIn">
@@ -25,7 +35,10 @@ const Reservation = () => {
                 <div className="go-back-wrapper">
                     <NotificationsModal props={reducerObject} />
                     <div className="go-back-button">
-                        <Link to="/">Go back</Link>
+                        <Link to="/" onClick={() => {
+                            window.alert("Do you want to go back?");
+                            sessionStorage.removeItem('movieSelected');
+                        }}>Go back</Link>
                     </div>
                 </div>
             </div>
@@ -38,9 +51,10 @@ const Reservation = () => {
                 </div>
                 <div className="res-col2">
                     {state.showConfirmPanel && (<ConfirmPanel props={reducerObject} />)}
-                    {state.showSelectPanel && (<SelectPanel />)}
-                    {state.showPaymentPanel && (<PaymentPanel />)}
-                    {state.showSummary && (<SummaryPanel />)}
+                    {state.showSelectPanel && (<SelectPanel props={reducerObject} />)}
+                    {state.showPaymentPanel && (<PaymentPanel props={reducerObject} />)}
+                    {state.showSummary && (<SummaryPanel props={reducerObject} />)}
+                    {ShowLogin && (<Redirect to="/login" />)}
                 </div>
             </div>
         </div>

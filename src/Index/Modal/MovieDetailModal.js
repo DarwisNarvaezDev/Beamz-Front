@@ -6,16 +6,24 @@ import { AppContext } from '../../router/App'
 
 const MovieDetailModal = ({ props }) => {
 
-    const { showModal, setShowModal } = props
+    const userInStorage = sessionStorage.getItem('user');
+
+    const { showModal, setShowModal, setIsMovieSelected, reducerObject } = props
+
+    const { setshowLogin } = reducerObject;
 
     const {movie, setMovie} = useContext(AppContext);
 
-    const {id, title, imgurl, gender, longdesc } = movie
+    const {id, title, imgurl, gender, longdesc, shortdesc } = movie
 
     const imgCloseButton = process.env.PUBLIC_URL + '/resources/icons8-macos-cerrar-30.png'
 
+    const arrayString = imgurl.split("/");
+    const imgUrlCrop = arrayString[arrayString.length-1];
+
     useEffect(() => {
-        console.log(`movie from modal: ${movie}`);
+        const arrayString = imgurl.split("/");
+        console.log(arrayString[arrayString.length-1]);
     })
 
     return (
@@ -37,7 +45,11 @@ const MovieDetailModal = ({ props }) => {
                     <h4>{CapitalizeLetter(gender)}</h4>
                     <p>{longdesc}</p>
                     <div className="modal-description-get-tickets">
-                        <Link to="/login">Get tickets</Link>
+                        <Link to="/reservations" onClick={(e) => {
+                            const movie = {id: id, imgurl: imgUrlCrop, title: title, gender: gender, longdesc: longdesc, shortdesc: shortdesc};
+                            sessionStorage.setItem('movieSelected', JSON.stringify(movie));
+                            setIsMovieSelected(true);
+                        }}>Get tickets</Link>
                     </div>
                 </div>
             </div>

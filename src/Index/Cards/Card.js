@@ -29,13 +29,12 @@ const Card = ({ props, modalEnabled }) => {
 
     useEffect(() => {
 
-
     }, [props])
 
     return (
         <div className="card animate__animated animate__fadeInUp" key={id}>
             <div className="card-row-1">
-                <img src={imgCard} alt="imagen de prueba" onClick={() => {
+                <img src={imgCard} alt={title} onClick={() => {
                     if( modalEnabled ){
                         cambiarContext()
                     }else{

@@ -23,9 +23,6 @@ const ComingSoonCardSection = ({props}) => {
 
     return (
         <>
-            <div className="section-title">
-                <h2>COMING SOON</h2>
-            </div>
             <div className="cards-container">
                 {
                     comingSoonMovies.map((element) => {

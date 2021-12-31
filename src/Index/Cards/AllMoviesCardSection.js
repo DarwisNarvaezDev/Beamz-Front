@@ -47,9 +47,6 @@ const AllMoviesCardSection = ({ props }) => {
 
     return (
         <>
-            <div className="section-title">
-                <h2>ALL MOVIES</h2>
-            </div>
             <div className="cards-container">
                 {
                     allMovies.map((element) => {
