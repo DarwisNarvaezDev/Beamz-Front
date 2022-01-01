@@ -220,12 +220,24 @@ export const ReservationReducer = (state, action) => {
 
         const seatsCompared = action.payload;
 
+        let avaiableSeats = [];
+
+        for ( let [key, value] of seatsCompared ){
+
+            if (value === 'seat'){
+                avaiableSeats.push(key);
+            }
+
+        }
+
         console.log(`Cambiando asientos:`);
         console.log(seatsCompared);
+        console.log(`Obteniendo asientos disponibles: ${avaiableSeats.length}`);
 
         return {
             ...state,
-            seats: seatsCompared
+            seats: seatsCompared,
+            seatsAvaiable: avaiableSeats
         }
 
     }

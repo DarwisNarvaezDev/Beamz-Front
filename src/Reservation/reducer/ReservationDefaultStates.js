@@ -3,6 +3,9 @@ export const ReservationDefaultStates = {
     //Response from order API
     orderAccepted: false,
 
+    //Seats avaiable
+    seatsAvaiable: 0,
+
     //Seats price
     seatsPrice: 15,
     priceToShow: 0,

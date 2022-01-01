@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { compareMap } from '../reducer/CompareMapHelper'
-import { fetchAllSeats } from '../reducer/FetchAllSeats'
 import SectorA from './sectors/SectorA'
 import SectorB from './sectors/SectorB'
 import SectorC from './sectors/SectorC'
@@ -13,6 +12,8 @@ const SelectPanel = ({ props }) => {
     
     let seatsSelected = [];
     const [seatsSelectedArray, setseatsSelectedArray] = useState(seatsSelected);
+
+    const [seatsAvaiable, setseatsAvaiable] = useState(0);
 
     const confirmButtonDefaultClass = 'seat-confirm-button';
     const [confirmButtonStateClass, setconfirmButtonStateClass] = useState(confirmButtonDefaultClass);
@@ -51,8 +52,9 @@ const SelectPanel = ({ props }) => {
     const awaitClasses = async() => {
 
         if( seatsSelectedArray.length === 0 ){
-            const { confirmSeatButtonClass } = state;
+            const { confirmSeatButtonClass, seatsAvaiable } = state;
             setconfirmButtonStateClass(confirmSeatButtonClass);
+            setseatsAvaiable(seatsAvaiable.length);
         }
         
     }
@@ -111,7 +113,7 @@ const SelectPanel = ({ props }) => {
                             <table>
                                 <tr>
                                     <td className="title-td row-td">Seats Avaiable</td>
-                                    <td className="row-td">Mock number</td>
+                                    <td className="row-td">{seatsAvaiable}</td>
                                 </tr>
                                 <tr>
                                     <td className="title-td row-td">Seats Selected</td>
