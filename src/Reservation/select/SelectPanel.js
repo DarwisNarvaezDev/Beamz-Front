@@ -62,7 +62,7 @@ const SelectPanel = ({ props }) => {
     useEffect(() => {
         compareMap(props);
     }, [])
-
+    
     useEffect(() => {
         awaitClasses();
         const movie = JSON.parse(sessionStorage.movieSelected);

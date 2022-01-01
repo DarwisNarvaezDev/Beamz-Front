@@ -24,7 +24,6 @@ export const IndexReducer = async (state, action) => {
 
     if( action.type === 'CHANGE_NEWMOVIES_TITLE' ){
 
-        // console.log(action.payload.toLowerCase().replace(/-/g, ""));
         const genderCriteria = action.payload.toLowerCase();
 
         const genderFiltered = data.filter( element => element.gender === genderCriteria );
@@ -32,6 +31,7 @@ export const IndexReducer = async (state, action) => {
         const ComingSoonMovies = data.filter(element => element.category === '2')
 
         const gender = action.payload;
+        
         const AllMovies = data;
 
         return {

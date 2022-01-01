@@ -61,7 +61,7 @@ const NewCardsSection = ({ props }) => {
 
     useEffect(() => {
 
-        if (newMovies.length < 10) {
+        if (newMovies.length <= 10) {
             propsawait();
         }
 

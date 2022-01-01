@@ -20,7 +20,7 @@ const LoginForm = () => {
             </div>
             <div className="form-row-3">
                 <label for="password-form-input">Password</label>
-                <input type="text" value="Type your assword" id="password-form-input"></input>
+                <input type="text" value="Type your password" id="password-form-input"></input>
             </div>
             <div className="form-row-4">
                 <div className="form-row-4-column-1">

@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Redirect } from 'react-router-dom';
 
 const TransactionSuccess = () => {
     
     const imgUrl = process.env.PUBLIC_URL + '/resources/qr.png'
     
+    const [showIndex, setshowIndex] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            window.alert("Redirecting to index.")
+            setshowIndex(true);
+        }, 10000)
+    }, [])
+
     return (
         <div className="success-container">
             <div className="success-wrapper animate__animated animate__bounceIn">
@@ -31,6 +41,7 @@ const TransactionSuccess = () => {
                     </div>
                 </div>
             </div>
+            { showIndex && (<Redirect to="/" />) }
         </div>
     )
 }

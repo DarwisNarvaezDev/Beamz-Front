@@ -219,10 +219,13 @@ export const ReservationReducer = (state, action) => {
     if( action.type === 'CHANGE_MAP' ){
 
         const seatsCompared = action.payload;
+
+        console.log(`Cambiando asientos:`);
         console.log(seatsCompared);
 
         return {
-            ...state
+            ...state,
+            seats: seatsCompared
         }
 
     }
@@ -619,7 +622,7 @@ export const ReservationReducer = (state, action) => {
         if( reservationCompleteValidation ){
 
             const { name, mail, lastName } = user;
-            const { id } = movie;
+            const { id, title } = movie;
             const { day, date, venue, seatsSelected, paymentMethod } = state;
 
             const businessObject = {
@@ -627,6 +630,7 @@ export const ReservationReducer = (state, action) => {
                 customer_name: name,
                 customer_lastname: lastName,
                 movie: id,
+                title: title,
                 day: day,
                 date: date,
                 seats: seatsSelected,
@@ -634,7 +638,6 @@ export const ReservationReducer = (state, action) => {
                 payment_method: paymentMethod
             };
 
-            console.log("fetching data");
             const response = doFetch(businessObject);
             if( response !== undefined ){
                 return {
